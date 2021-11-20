@@ -20,8 +20,7 @@ public class User {
   private List<Folder> folders;
 
   //Constructor
-  public User(Long id, String name, String password) {
-    this.id = id;
+  public User(String name, String password) {
     this.name = name;
     this.password = password;
   }
