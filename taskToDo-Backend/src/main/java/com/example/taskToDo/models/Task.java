@@ -12,8 +12,9 @@ public class Task {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(unique = true, nullable = false)
   private Long id;
-  private Long idFolder;
-  private Long idUser;
+  @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+  @JoinColumn(name = "folder_id")
+  private Folder folder;
   private String title;
   private String description;
   private Boolean complete;
@@ -28,20 +29,12 @@ public class Task {
     this.id = id;
   }
 
-  public Long getIdFolder() {
-    return this.idFolder;
+  public Folder getFolder() {
+    return this.folder;
   }
 
-  public void setIdFolder(Long idFolder) {
-    this.idFolder = idFolder;
-  }
-
-  public Long getIdUser() {
-    return this.idUser;
-  }
-
-  public void setIdUser(Long idUser) {
-    this.idUser = idUser;
+  public void setIdFolder(Folder folder) {
+    this.folder = folder;
   }
 
   public String getTitle() {

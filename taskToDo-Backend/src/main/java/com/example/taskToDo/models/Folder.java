@@ -1,5 +1,7 @@
 package com.example.taskToDo.models;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,22 @@ public class Folder {
   private Long id;
   private String title;
   private String description;
+
+  @OneToMany(mappedBy = "folder",cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+  private List<Task> tasks;
+
+  @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+  @JoinColumn(name = "user_id")
+  private User user;
+
+
+  public List<Task> getTasks() {
+    return this.tasks;
+  }
+
+  public void setTasks(List<Task> tasks) {
+    this.tasks = tasks;
+  }
 
   public Long getId() {
     return this.id;
