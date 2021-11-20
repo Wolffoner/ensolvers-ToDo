@@ -31,6 +31,7 @@ public class User {
   
   
   //Methods
+
   public void addFolder(Folder folder){
     if(folders == null) this.folders = new ArrayList<>();
     this.folders.add(folder);
