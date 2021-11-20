@@ -2,8 +2,15 @@ package com.example.taskToDo.models;
 
 import java.sql.Date;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "task")
 public class Task {
   
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(unique = true, nullable = false)
   private Long id;
   private Long idFolder;
   private Long idUser;
