@@ -1,5 +1,6 @@
 package com.example.taskToDo.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import javax.persistence.*;
 @Table(name = "user")
 public class User {
 
+  //Attributes
   @Id
   @GeneratedValue(strategy =  GenerationType.IDENTITY)
   private Long id;
@@ -17,14 +19,19 @@ public class User {
   @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
   private List<Folder> folders;
 
-
-  public User(Long id, String name, String password, List<Folder> folders) {
+  //Constructor
+  public User(Long id, String name, String password) {
     this.id = id;
     this.name = name;
     this.password = password;
-    this.folders = folders;
   }
   
+  //Methods
+  public void addFolder(Folder folder){
+    if(folders == null) this.folders = new ArrayList<>();
+    this.folders.add(folder);
+    folder.setUser(this);
+  }
 
   public Long getId() {
     return this.id;

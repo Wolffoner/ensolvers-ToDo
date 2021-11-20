@@ -7,7 +7,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "task")
 public class Task {
-  
+
+  //Attributes
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(unique = true, nullable = false)
@@ -21,6 +22,18 @@ public class Task {
   private Date dateCreation;
   private Date dateFinished;
 
+  //Constructor
+  public Task(Long id, Folder folder, String title, String description, Boolean complete, Date dateCreation, Date dateFinished) {
+    this.id = id;
+    this.folder = folder;
+    this.title = title;
+    this.description = description;
+    this.complete = complete;
+    this.dateCreation = dateCreation;
+    this.dateFinished = dateFinished;
+  }
+
+  //Methods
   public Long getId() {
     return this.id;
   }
@@ -33,7 +46,7 @@ public class Task {
     return this.folder;
   }
 
-  public void setIdFolder(Folder folder) {
+  public void setFolder(Folder folder) {
     this.folder = folder;
   }
 

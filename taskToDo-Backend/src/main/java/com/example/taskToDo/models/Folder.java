@@ -1,5 +1,6 @@
 package com.example.taskToDo.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import javax.persistence.*;
 @Table(name = "folder")
 public class Folder {
 
+  //Attributes
   @Id
   @GeneratedValue (strategy = GenerationType.IDENTITY)
   private Long id;
@@ -21,13 +23,27 @@ public class Folder {
   @JoinColumn(name = "user_id")
   private User user;
 
-
-  public List<Task> getTasks() {
-    return this.tasks;
+  //Constructor
+  public Folder(Long id, String title, String description, User user) {
+    this.id = id;
+    this.title = title;
+    this.description = description;
+    this.user = user;
   }
 
-  public void setTasks(List<Task> tasks) {
-    this.tasks = tasks;
+  //Methods
+  public void addTask(Task task){
+    if(tasks == null) this.tasks = new ArrayList<>();
+    tasks.add(task);
+    task.setFolder(this);
+  }
+
+  public User getUser() {
+    return this.user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
   }
 
   public Long getId() {
