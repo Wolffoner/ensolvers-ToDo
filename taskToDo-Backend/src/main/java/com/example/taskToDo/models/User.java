@@ -18,6 +18,9 @@ public class User {
 
   @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
   private List<Folder> folders;
+  @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+  private List<Task> tasks;
+
 
   //Constructor
   public User(){
@@ -33,9 +36,19 @@ public class User {
   //Methods
 
   public void addFolder(Folder folder){
-    if(folders == null) this.folders = new ArrayList<>();
+    if(this.folders == null){ 
+      this.folders = new ArrayList<>();
+    }
     this.folders.add(folder);
     folder.setUser(this);
+  }
+  
+  public void addTask(Task task){
+    if(this.tasks == null) {
+      this.tasks = new ArrayList<>();
+    }
+    this.tasks.add(task);
+    task.setUser(this);
   }
 
   public Long getId() {

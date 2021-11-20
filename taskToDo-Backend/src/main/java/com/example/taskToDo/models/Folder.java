@@ -27,16 +27,15 @@ public class Folder {
   public Folder(){
   }
 
-  public Folder(String title, String description, User user) {
+  public Folder(String title, String description) {
     this.title = title;
     this.description = description;
-    this.user = user;
   }
 
   //Methods
   public void addTask(Task task){
-    if(tasks == null) this.tasks = new ArrayList<>();
-    tasks.add(task);
+    if(this.tasks == null) this.tasks = new ArrayList<>();
+    this.tasks.add(task);
     task.setFolder(this);
   }
 
