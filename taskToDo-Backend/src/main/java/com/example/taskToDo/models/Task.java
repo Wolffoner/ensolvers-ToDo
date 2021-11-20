@@ -23,6 +23,9 @@ public class Task {
   private Date dateFinished;
 
   //Constructor
+  public Task(){
+  }
+
   public Task(String title, String description, Boolean complete, Date dateCreation, Date dateFinished) {
     this.title = title;
     this.description = description;
