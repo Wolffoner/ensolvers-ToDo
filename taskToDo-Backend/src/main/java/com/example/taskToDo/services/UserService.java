@@ -1,6 +1,8 @@
 package com.example.taskToDo.services;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import com.example.taskToDo.models.User;
 import com.example.taskToDo.repositories.UserRepository;
@@ -15,13 +17,17 @@ public class UserService {
   UserRepository userRepository;
 
   // get Users
-  public ArrayList<User> getUsers(){
+  public List<User> getUsers(){
     return (ArrayList<User>) userRepository.findAll();
   }
 
   // save User
   public User saveUser(User user){
     return userRepository.save(user);
+  }
+
+  public Optional<User> getUserById(Long id){
+    return userRepository.findById(id);
   }
 
 }
