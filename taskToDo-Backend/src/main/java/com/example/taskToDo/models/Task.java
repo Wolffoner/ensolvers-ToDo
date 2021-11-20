@@ -23,9 +23,7 @@ public class Task {
   private Date dateFinished;
 
   //Constructor
-  public Task(Long id, Folder folder, String title, String description, Boolean complete, Date dateCreation, Date dateFinished) {
-    this.id = id;
-    this.folder = folder;
+  public Task(String title, String description, Boolean complete, Date dateCreation, Date dateFinished) {
     this.title = title;
     this.description = description;
     this.complete = complete;

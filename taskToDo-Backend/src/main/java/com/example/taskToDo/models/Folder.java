@@ -24,7 +24,7 @@ public class Folder {
   private User user;
 
   //Constructor
-  public Folder(Long id, String title, String description, User user) {
+  public Folder(String title, String description, User user) {
     this.id = id;
     this.title = title;
     this.description = description;
