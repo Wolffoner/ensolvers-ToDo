@@ -43,6 +43,7 @@ const Task = ( {element = {
         <td>{task?.description}</td>
         <td>{task?.dateCreation}</td>
         <td>{task?.dateFinished}</td>
+        <td><Button onClick="" title="♻️" color="#dfe44d"></Button></td>
         <td><Button onClick={saveTask} title="💾" color="#17845c"></Button></td>
         <td><Button onClick="" title="🗑️" color="#ba1126"></Button></td>
       </tr> 

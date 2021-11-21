@@ -3,17 +3,18 @@ import styled from 'styled-components';
 // Styled Button
 export const StyledButton = styled.button`
   display: flex;
-  font-size: medium;
+  font-size: 1.2em;
   font-family: 'Verdana';
   color: #FFFFFF;
-  width: 50px;
-  height: 100%;
+  width: ${props => props?.width};
+  height: ${props => props?.height};
   cursor: pointer;
   border-radius: 4px;
   border: none;
   background-color: ${props => props?.color};
   align-items: center;
   justify-content: center;
+  margin: 10px;
 
   //When is hover change color
   &:hover {

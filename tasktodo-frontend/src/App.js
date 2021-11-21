@@ -1,10 +1,10 @@
 import './App.css';
-import TaskList from './components/TaskList';
+import ViewToDoList from './components/ViewToDoList';
 
 const App = () => {
   return (
     <>
-      <TaskList></TaskList>
+      <ViewToDoList></ViewToDoList>
     </>
   );
 }
