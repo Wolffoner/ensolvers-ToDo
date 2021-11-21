@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import org.springframework.lang.NonNull;
 
 @Entity
 @Table(name = "task")
