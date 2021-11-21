@@ -58,6 +58,10 @@ public class TaskService {
     return taskRepository.findTaskByFolderAndUserId(userId, folderId);
   }
 
+  public List<Task> getTasksCompletesByUserAndFolderId(Long userId, Long folderId, Boolean complete){
+    return taskRepository.findTaskByFolderAndUserComplete(userId, folderId, complete);
+  }
+
   // get Task by id
   public Task getTaskById(Long id){
     Optional<Task> optTask = taskRepository.findById(id);

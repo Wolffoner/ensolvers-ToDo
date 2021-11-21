@@ -26,4 +26,9 @@ public interface TaskRepository extends CrudRepository<Task, Long> {
   value = "SELECT * FROM TaskToDoDB.task AS t  WHERE t.user_id = :userId AND t.folder_id = :folderId", 
   nativeQuery = true)
   public List<Task> findTaskByFolderAndUserId(@Param("userId") Long userId, @Param("folderId") Long folderId);
+  
+  @Query(
+  value = "SELECT * FROM TaskToDoDB.task AS t  WHERE t.user_id = :userId AND t.folder_id = :folderId AND t.complete = :complete", 
+  nativeQuery = true)
+  public List<Task> findTaskByFolderAndUserComplete(@Param("userId") Long userId, @Param("folderId") Long folderId, Boolean complete);
 }

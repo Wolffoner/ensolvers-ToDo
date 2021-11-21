@@ -4,6 +4,8 @@ import java.sql.Date;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "task")
 public class Task {
@@ -34,16 +36,16 @@ public class Task {
   public Task(){
   }
 
-  public Task(String title, String description, Boolean complete, Date dateCreation, Date dateFinished) {
+  public Task(String title, String description, Date dateCreation) {
     this.title = title;
     this.description = description;
-    this.complete = complete;
+    this.complete = false;
     this.dateCreation = dateCreation;
-    this.dateFinished = dateFinished;
   }
 
   //Methods
   
+  @JsonIgnore
   public User getUser() {
     return this.user;
   }
@@ -60,6 +62,7 @@ public class Task {
     this.id = id;
   }
 
+  @JsonIgnore
   public Folder getFolder() {
     return this.folder;
   }

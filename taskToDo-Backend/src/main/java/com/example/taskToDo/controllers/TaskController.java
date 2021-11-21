@@ -41,6 +41,14 @@ public class TaskController {
   public List<Task> getTasksByUserAndFolder(@PathVariable(name = "user_id") Long userId, @PathVariable(name = "folder_id") Long folderId){
     return taskService.getTasksByFolderAndUserId(userId, folderId);
   }
+  
+  @GetMapping("/user_id={user_id}/folder_id={folder_id}/complete={complete}")
+  public List<Task> getTasksByUserAndFolder(
+    @PathVariable(name = "user_id") Long userId, 
+    @PathVariable(name = "folder_id") Long folderId, 
+    @PathVariable(name = "complete") Boolean complete){
+    return taskService.getTasksCompletesByUserAndFolderId(userId, folderId, complete);
+  }
 
   @GetMapping("/id={id}")
   public Task getTaskById(@PathVariable(name = "id") Long id){
