@@ -53,6 +53,13 @@ public class User {
     task.setUser(this);
   }
 
+  public List<Folder> getFolders(){
+    return this.folders;
+  }
+
+  public List<Task> getTasks(){
+    return this.tasks;
+  }
   public Long getId() {
     return this.id;
   }

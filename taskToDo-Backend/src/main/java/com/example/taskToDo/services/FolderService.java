@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import javax.naming.NameNotFoundException;
-
 import com.example.taskToDo.models.Folder;
 import com.example.taskToDo.models.User;
 import com.example.taskToDo.repositories.FolderRepository;
@@ -14,7 +12,6 @@ import com.example.taskToDo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.bytebuddy.implementation.bytecode.Throw;
 
 @Service
 public class FolderService {
