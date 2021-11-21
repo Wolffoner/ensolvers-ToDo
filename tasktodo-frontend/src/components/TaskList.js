@@ -1,50 +1,57 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import { useAxios } from '../hooks/useAxios';
 
 const TaskList = () => {
 
-  const [ tasks, setTasks] = useState([]);
-  const [ error, setError] = useState('');
-
-  const fetchData = () => {
-    axios
-      .get('http://localhost:8080/tasks')
-      .then((res) => {
-          setTasks(res?.data);
-      })
-      .catch((err) => {
-        setError(err);
-      });
-  }
+  const {response, error, loading} = useAxios({
+    method: 'GET',
+    url: 'http://localhost:8080/tasksl',
+  })
+  const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    fetchData();
-  }, [])
-  
+      setTasks(response ?? []);
+  }, [response]);
+
   const elements = tasks.map((task) =>{
-       return(
-          <tr>
-              <td><label><input type="checkbox" id="cbox1" checked={task?.complete}/></label></td>
-              <td>{task?.title}</td>
-              <td>{task?.description}</td>
-              <td>{task?.dateCreation}</td>
-              <td>{task?.dateFinished}</td>
-          </tr>
-            )
+   return(
+      <tr>
+        <td><label><input type="checkbox" id="cbox1" checked={task?.complete}/></label></td>
+        <td>{task?.title}</td>
+        <td>{task?.description}</td>
+        <td>{task?.dateCreation}</td>
+        <td>{task?.dateFinished}</td>
+      </tr>
+    )
   })
   
   return (
     <>  
-      <table>
-        <tr>
-          <th>Complete</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Date Created</th>
-          <th>Date Finished</th>
-        </tr>
-        {elements}
-      </table>
+      { loading === true 
+        ? 
+          <div>Loading</div>
+        : (
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Complete</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Date Created</th>
+                  <th>Date Finished</th>
+                </tr>
+              </thead>
+              <tbody>
+                {error && (
+                  <div>{error?.message}</div>
+                )}
+                {elements}
+              </tbody>
+            </table>
+          </div>
+        )
+      }
     </>
   );
 };
