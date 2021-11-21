@@ -8,5 +8,5 @@ export const StyledBackground = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${props => props.color ?? "#3f5b6d"};
+  background-color: ${props => props.color ?? "#687c98"};
 `;

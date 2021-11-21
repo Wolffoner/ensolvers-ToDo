@@ -18,7 +18,7 @@ export const StyledButton = styled.button`
 
   //When is hover change color
   &:hover {
-    background-color: #2b303c;
+    background-color: #272c33;
   }
   // When active change color
   &:active {
