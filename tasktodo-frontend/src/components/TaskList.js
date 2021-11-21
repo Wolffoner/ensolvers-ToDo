@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { useAxios } from '../hooks/useAxios';
+import Task from './Task';
 
 const TaskList = () => {
 
   const {response, error, loading} = useAxios({
     method: 'GET',
-    url: 'http://localhost:8080/tasksl',
+    url: 'http://localhost:8080/tasks',
   })
   const [tasks, setTasks] = useState([]);
 
@@ -15,13 +16,7 @@ const TaskList = () => {
 
   const elements = tasks.map((task) =>{
    return(
-      <tr>
-        <td><label><input type="checkbox" id="cbox1" checked={task?.complete}/></label></td>
-        <td>{task?.title}</td>
-        <td>{task?.description}</td>
-        <td>{task?.dateCreation}</td>
-        <td>{task?.dateFinished}</td>
-      </tr>
+      <Task element={task}></Task>
     )
   })
   
@@ -40,13 +35,15 @@ const TaskList = () => {
                   <th>Description</th>
                   <th>Date Created</th>
                   <th>Date Finished</th>
+                  <th>Save</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
-                {error && (
-                  <div>{error?.message}</div>
-                )}
-                {elements}
+                  {error && (
+                    <div>{error?.message}</div>
+                  )}
+                  {elements}
               </tbody>
             </table>
           </div>
