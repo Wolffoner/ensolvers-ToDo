@@ -63,9 +63,11 @@ public class FolderService {
   public Folder modifyFolderById(Long id, Folder folder){
     Optional<Folder> folderOpt = folderRepository.findById(id);
     if(folderOpt.isPresent()){
-      folderOpt.get().setTitle(folder.getTitle());
-      folderOpt.get().setDescription(folder.getDescription());
-      return folderOpt.get();
+      Folder folderModify = folderOpt.get();
+      folderModify.setTitle(folder.getTitle());
+      folderModify.setDescription(folder.getDescription());
+      folderRepository.save(folderModify);
+      return folderModify;
     } else {
       return null;
     }

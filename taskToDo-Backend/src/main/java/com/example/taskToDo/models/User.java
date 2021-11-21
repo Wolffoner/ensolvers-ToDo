@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "user")
 public class User {
@@ -67,6 +69,7 @@ public class User {
     this.name = name;
   }
 
+  @JsonIgnore
   public String getPassword() {
     return this.password;
   }

@@ -9,6 +9,7 @@ import com.example.taskToDo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,8 +29,8 @@ public class UserController {
     return userService.getUsers();
   }
 
-  @GetMapping("/")
-  public Optional<User> getUserById(@RequestParam(name = "id") Long id){
+  @GetMapping("/id={id}")
+  public User getUserById(@PathVariable(name = "id") Long id){
     return userService.getUserById(id);
   }
 
@@ -38,13 +39,13 @@ public class UserController {
     return userService.saveUser(user);
   }
 
-  @DeleteMapping
-  public Optional<User> deleteUser(@RequestParam(name = "id") Long id){
+  @DeleteMapping("/id={id}")
+  public User deleteUser(@PathVariable(name = "id") Long id){
     return userService.deleteUserById(id);
   }
 
-  @PutMapping("/")
-  public Optional<User> modifyUser(@RequestParam(name="id") Long id, @RequestBody User user){
+  @PutMapping("/id={id}")
+  public User modifyUser(@PathVariable(name="id") Long id, @RequestBody User user){
     return userService.modifyUserById(id, user);
   }
 }
