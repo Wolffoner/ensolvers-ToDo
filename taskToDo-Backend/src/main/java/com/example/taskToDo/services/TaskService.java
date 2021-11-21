@@ -39,6 +39,8 @@ public class TaskService {
       Folder folder = optFolder.get();
       task.setUser(user);
       task.setFolder(folder);
+      user.addTask(task);
+      folder.addTask(task);
       return taskRepository.save(task);
     }
     return null;

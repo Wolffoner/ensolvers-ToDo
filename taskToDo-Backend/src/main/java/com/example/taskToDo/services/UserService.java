@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.taskToDo.models.Folder;
 import com.example.taskToDo.models.User;
 import com.example.taskToDo.repositories.UserRepository;
 
@@ -34,16 +33,6 @@ public class UserService {
       return user.get();
     }
     return null;
-  }
-
-  public List<Folder> getFoldersOfUser(Long id){
-    User user = getUserById(id);
-    return user.getFolders();
-  }
-
-  public List<Task> getTasksOfUser(Long id){
-    User user = getUserById(id);
-    return user.getTasks();
   }
 
   // delete User by Id

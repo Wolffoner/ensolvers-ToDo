@@ -42,7 +42,6 @@ public class User {
       this.folders = new ArrayList<>();
     }
     this.folders.add(folder);
-    folder.setUser(this);
   }
   
   public void addTask(Task task){
@@ -50,16 +49,8 @@ public class User {
       this.tasks = new ArrayList<>();
     }
     this.tasks.add(task);
-    task.setUser(this);
   }
 
-  public List<Folder> getFolders(){
-    return this.folders;
-  }
-
-  public List<Task> getTasks(){
-    return this.tasks;
-  }
   public Long getId() {
     return this.id;
   }

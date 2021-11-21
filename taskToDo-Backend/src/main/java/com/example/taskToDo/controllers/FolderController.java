@@ -21,6 +21,7 @@ public class FolderController {
 
   @Autowired
   FolderService folderService;
+  
 
   @GetMapping
   public List<Folder> getFolders(){
@@ -30,6 +31,11 @@ public class FolderController {
   @GetMapping("/id={id}")
   public Folder getFolderById(@PathVariable(name = "id") Long id){
     return folderService.getFolderById(id);
+  }
+
+  @GetMapping("/user_id={user_id}")
+  public List<Folder> getFolderByUser(@PathVariable(name = "user_id") Long userId){
+    return folderService.getFolderByUser(userId);
   }
 
   @PostMapping("/user_id={user_id}")

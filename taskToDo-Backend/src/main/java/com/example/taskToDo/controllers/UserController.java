@@ -2,6 +2,8 @@ package com.example.taskToDo.controllers;
 
 import java.util.List;
 
+import com.example.taskToDo.models.Folder;
+import com.example.taskToDo.models.Task;
 import com.example.taskToDo.models.User;
 import com.example.taskToDo.services.UserService;
 

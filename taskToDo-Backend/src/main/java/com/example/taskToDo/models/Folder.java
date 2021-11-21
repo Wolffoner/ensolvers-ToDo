@@ -36,7 +36,6 @@ public class Folder {
   public void addTask(Task task){
     if(this.tasks == null) this.tasks = new ArrayList<>();
     this.tasks.add(task);
-    task.setFolder(this);
   }
 
   public User getUser() {

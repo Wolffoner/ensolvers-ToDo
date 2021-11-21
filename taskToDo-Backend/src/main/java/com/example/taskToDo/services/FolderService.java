@@ -12,7 +12,6 @@ import com.example.taskToDo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class FolderService {
   
@@ -32,9 +31,16 @@ public class FolderService {
     if(optUser.isPresent()){
       User user = optUser.get();
       folder.setUser(user);
+      user.addFolder(folder);
       return folderRepository.save(folder);
     }
     return null;
+  }
+
+  public List<Folder> getFolderByUser(Long userId){
+      ArrayList<Folder> folders = (ArrayList<Folder>)folderRepository.findAll();
+      folders.removeIf(folder -> (!folder.getUser().getId().equals(userId)));
+      return folders;
   }
 
   // get Folder by Id
