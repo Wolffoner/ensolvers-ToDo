@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "folder")
 public class Folder {
@@ -38,6 +40,7 @@ public class Folder {
     this.tasks.add(task);
   }
 
+  @JsonIgnore
   public User getUser() {
     return this.user;
   }

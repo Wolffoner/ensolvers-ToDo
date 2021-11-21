@@ -34,7 +34,7 @@ public class TaskService {
   public Task saveTask(Task task, Long userId, Long folderId){
     Optional<User> optUser = userRepository.findById(userId);
     Optional<Folder> optFolder = folderRepository.findById(folderId);
-    if(optUser.isPresent() && optFolder.isPresent()){
+    if(optUser.isPresent() && optFolder.isPresent() && optFolder.get().getUser().getId().equals(userId)){
       User user = optUser.get();
       Folder folder = optFolder.get();
       task.setUser(user);
@@ -44,6 +44,10 @@ public class TaskService {
       return taskRepository.save(task);
     }
     return null;
+  }
+
+   public List<Task> getTasksByFolder(Long folderId){
+    return taskRepository.findTaskByFolderId(folderId);
   }
 
   // get Task by id
