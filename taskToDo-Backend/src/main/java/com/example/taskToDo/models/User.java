@@ -15,7 +15,9 @@ public class User {
   @Id
   @GeneratedValue(strategy =  GenerationType.IDENTITY)
   private Long id;
+  @Column(nullable = false)
   private String name;
+  @Column(nullable = false)
   private String password;
 
   @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})

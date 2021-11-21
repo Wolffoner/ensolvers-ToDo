@@ -6,6 +6,8 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import org.springframework.lang.NonNull;
+
 @Entity
 @Table(name = "task")
 public class Task {
@@ -25,10 +27,12 @@ public class Task {
   private User user;
 
   
-
+  @Column(nullable = false)
   private String title;
   private String description;
+  @Column(nullable = false)
   private Boolean complete;
+  @Column(nullable = false)
   private Date dateCreation;
   private Date dateFinished;
 

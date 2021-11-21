@@ -15,6 +15,7 @@ public class Folder {
   @Id
   @GeneratedValue (strategy = GenerationType.IDENTITY)
   private Long id;
+  @Column(nullable = false)
   private String title;
   private String description;
 
