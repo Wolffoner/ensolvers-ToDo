@@ -3,7 +3,6 @@ package com.example.taskToDo.controllers;
 import java.util.List;
 
 import com.example.taskToDo.models.Task;
-import com.example.taskToDo.services.FolderService;
 import com.example.taskToDo.services.TaskService;
 
 import org.springframework.beans.factory.annotation.Autowired;
