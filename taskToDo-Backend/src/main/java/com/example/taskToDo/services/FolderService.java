@@ -38,9 +38,7 @@ public class FolderService {
   }
 
   public List<Folder> getFolderByUser(Long userId){
-      ArrayList<Folder> folders = (ArrayList<Folder>)folderRepository.findAll();
-      folders.removeIf(folder -> (!folder.getUser().getId().equals(userId)));
-      return folders;
+      return folderRepository.findFoldersById(userId);
   }
 
   // get Folder by Id
