@@ -32,6 +32,16 @@ public class TaskController {
     return taskService.getTasksByFolder(folderId);
   }
 
+  @GetMapping("/user_id={user_id}")
+  public List<Task> getTasksByUser(@PathVariable(name = "user_id") Long userId){
+    return taskService.getTasksByUserId(userId);
+  }
+  
+  @GetMapping("/user_id={user_id}/folder_id={folder_id}")
+  public List<Task> getTasksByUserAndFolder(@PathVariable(name = "user_id") Long userId, @PathVariable(name = "folder_id") Long folderId){
+    return taskService.getTasksByFolderAndUserId(userId, folderId);
+  }
+
   @GetMapping("/id={id}")
   public Task getTaskById(@PathVariable(name = "id") Long id){
     return taskService.getTaskById(id);

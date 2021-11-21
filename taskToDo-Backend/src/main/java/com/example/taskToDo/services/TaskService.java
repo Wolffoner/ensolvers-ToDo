@@ -46,8 +46,16 @@ public class TaskService {
     return null;
   }
 
-   public List<Task> getTasksByFolder(Long folderId){
+  public List<Task> getTasksByFolder(Long folderId){
     return taskRepository.findTaskByFolderId(folderId);
+  }
+
+  public List<Task> getTasksByUserId(Long userId){
+    return taskRepository.findTasksByUserId(userId);
+  }
+
+  public List<Task> getTasksByFolderAndUserId(Long userId, Long folderId){
+    return taskRepository.findTaskByFolderAndUserId(userId, folderId);
   }
 
   // get Task by id
