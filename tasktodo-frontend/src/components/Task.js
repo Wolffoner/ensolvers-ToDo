@@ -1,14 +1,23 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import {Button} from './button/Button';
 
-const Task = ( element ) => {
+const Task = ( {element = {
+  id: '',
+  title: '',
+  description: '',
+  complete: '',
+  dateCreation: '',
+  dateFinished: ''
+ }} ) => {
 
   const [task, setTask] = useState({
-    id: element?.element?.id,
-    title: element?.element?.title,
-    description: element?.element?.description,
-    complete: element?.element?.complete,
-    dateCreation: element?.element?.dateCreation,
-    dateFinished: element?.element?.dateFinished 
+    id: element?.id,
+    title: element?.title,
+    description: element?.description,
+    complete: element?.complete,
+    dateCreation: element?.dateCreation,
+    dateFinished: element?.dateFinished 
   });
 
   const changeComplete = () =>{
@@ -18,9 +27,14 @@ const Task = ( element ) => {
     setTask({...task, complete: change, dateFinished: dateChange})
   }
 
-  useEffect(() => {
-    console.log(task);
-  }, [task])
+  const saveTask = async() =>{
+    try {
+      await axios.put(`http://localhost:8080/tasks/id=${task.id}`,task);
+      console.log(`perfecto`);
+    } catch(err) {
+      console.log(`error`);
+    }
+  }
 
    return(
       <tr>
@@ -29,9 +43,9 @@ const Task = ( element ) => {
         <td>{task?.description}</td>
         <td>{task?.dateCreation}</td>
         <td>{task?.dateFinished}</td>
-        <td><button>Save</button></td>
-        <td><button>Delete</button></td>
-      </tr>
+        <td><Button onClick={saveTask} title="💾" color="#17845c"></Button></td>
+        <td><Button onClick="" title="🗑️" color="#ba1126"></Button></td>
+      </tr> 
     )
   }
   

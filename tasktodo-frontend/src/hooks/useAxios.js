@@ -22,5 +22,5 @@ export const useAxios = (reqParams) =>{
     fetchData(reqParams);
   }, []);
 
-  return{response, error, loading};
+  return{response, error, loading, fetchData};
 }
