@@ -1,20 +1,20 @@
 import React from 'react';
 import { StyledBackground } from '../utils/bg/StyledBackground';
 import {StyledBox} from '../utils/box/StyledBox';
-import FormTask from '../utils/form/FormTask';
+import FormFolder from '../utils/form/FormFolder';
 import { useLocation } from 'react-router';
 
-const ViewFormTask = () => {
+const ViewFormFolder = () => {
   const location = useLocation();
   return (
     <>
       <StyledBackground>
         <StyledBox width="600px" height="300px">
-            <FormTask creation={location?.state}></FormTask>
+            <FormFolder creation={location?.state}></FormFolder>
         </StyledBox>
       </StyledBackground> 
     </>
   );
 };
 
-export default ViewFormTask;
+export default ViewFormFolder;

@@ -4,11 +4,11 @@ import StyledForm from './StyledForm';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const FormTask = ({creation = {}}) => {
+const FormFolder = ({creation = {}}) => {
 
   const [folder, setFolder] = useState({
-    title: element?.title,
-    description: element?.description,
+    title: '',
+    description: '',
   });
 
   // handleChange form
@@ -21,7 +21,7 @@ const FormTask = ({creation = {}}) => {
 
   const saveFolder = async() =>{
     try {
-      await axios.post(`http://localhost:8080/folders/user_id=${creation?.userId}`, folder);
+      await axios.post(`http://localhost:8080/folders/user_id=1`, folder);
     } catch(err) {
     }
   }
@@ -37,10 +37,10 @@ const FormTask = ({creation = {}}) => {
           Description:
         </label>
           <textarea name="description" form="" onChange={handleChange} placeholder="Enter your description here"></textarea>
-          <Link to='/list' state={creation?.userId}><Button height="60px" width="150px" title="Create Task" onClick={saveFolder}/></Link>
+          <Link to='/' state={creation?.userId}><Button height="60px" width="150px" title="Create Folder" onClick={saveFolder}/></Link>
       </StyledForm>
     </>
   );
 };
 
-export default FormTask;
+export default FormFolder;
