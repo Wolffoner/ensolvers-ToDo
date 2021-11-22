@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {Button} from '../button/Button';
-import { Link } from 'react-router-dom';
 
 const Task = ( {element = {
   id: '',
