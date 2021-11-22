@@ -10,8 +10,7 @@ const Task = ( {element = {
   complete: '',
   dateCreation: '',
   dateFinished: ''
- },
- folderId
+ }
 } ) => {
 
   const [task, setTask] = useState({
@@ -34,9 +33,16 @@ const Task = ( {element = {
   const saveTask = async() =>{
     try {
       await axios.put(`http://localhost:8080/tasks/id=${task.id}`,task);
-      console.log(task);
+      window.location.reload();
     } catch(err) {
-      console.log(`error`);
+    }
+  }
+
+  const deleteTask = async() =>{
+    try {
+      await axios.delete(`http://localhost:8080/tasks/id=${task.id}`,task);
+      window.location.reload();
+    } catch(err) {
     }
   }
 
@@ -48,7 +54,7 @@ const Task = ( {element = {
         <td>{task?.dateCreation}</td>
         <td>{task?.dateFinished}</td>
         <td><Button onClick={saveTask} title="💾" color="#17845c"></Button></td>
-        <td><Button title="🗑️" color="#ba1126"></Button></td>
+        <td><Button onClick={deleteTask} title="🗑️" color="#ba1126"></Button></td>
       </tr> 
     )
   }

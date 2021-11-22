@@ -9,34 +9,24 @@ const FormTask = ({
     element = { 
       title: '',
       description: '',
-      dateCreation: '',
-      dateFinished: '',
-      complete: false  
     }}) => {
 
-  const today = new Date();
-  const dateCreation = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`;
-
-  const [task, setTask] = useState({
+  const [folder, setFolder] = useState({
     title: element?.title,
     description: element?.description,
-    dateCreation: element?.dateCreation === '' ? dateCreation : element?.dateCreation,
-    complete: element?.complete,
-    dateFinished: element.dateFinished
   });
 
   // handleChange form
   const handleChange = (event) =>{
-    setTask({
-      ...task,
+    setFolder({
+      ...folder,
       [event.target.name]: event.target.value
-  });
-  console.log(task);
+    });
   }
 
-  const saveTask = async() =>{
+  const saveFolder = async() =>{
     try {
-      await axios.post(`http://localhost:8080/tasks/folder_id=${creation?.folderId}/user_id=${creation?.userId}`, task);
+      await axios.post(`http://localhost:8080/folders/user_id=${creation?.userId}`, folder);
     } catch(err) {
     }
   }
@@ -52,7 +42,7 @@ const FormTask = ({
           Description:
         </label>
           <textarea name="description" form="" onChange={handleChange} placeholder="Enter your description here"></textarea>
-          <Link to='/list' state={creation?.folderId}><Button height="60px" width="150px" title="Create Task" onClick={saveTask}/></Link>
+          <Link to='/list' state={creation?.userId}><Button height="60px" width="150px" title="Create Task" onClick={saveFolder}/></Link>
       </StyledForm>
     </>
   );
