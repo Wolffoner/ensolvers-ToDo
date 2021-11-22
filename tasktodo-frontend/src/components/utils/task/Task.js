@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
-import {Button} from './button/Button';
+import {Button} from '../button/Button';
 
 const Task = ( {element = {
   id: '',

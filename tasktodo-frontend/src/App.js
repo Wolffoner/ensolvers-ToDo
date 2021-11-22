@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from 'react-router';
-import ViewFormTask from './components/ViewFormTask';
-import ViewToDoList from './components/ViewToDoList';
+import ViewFormTask from './components/views/ViewFormTask';
+import ViewToDoList from './components/views/ViewToDoList';
 
 const App = () => {
   return (

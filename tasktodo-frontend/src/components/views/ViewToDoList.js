@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyledBackground } from './bg/StyledBackground';
-import {StyledBox, StyledBodyBox, StyledHeadBox} from './box/StyledBox';
-import TaskList from './TaskList';
-import { Button } from './button/Button';
+import { StyledBackground } from '../utils/bg/StyledBackground';
+import {StyledBox, StyledBodyBox, StyledHeadBox} from '../utils/box/StyledBox';
+import TaskList from '../utils/taskList/TaskList';
+import { Button } from '../utils/button/Button';
 import {useNavigate} from 'react-router-dom';
 
 const ViewToDoList = () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import StyledTable from './StyledTable';
-import Task from '../Task';
+import Task from '../task/Task';
 
 // Table
 const Table = ({tasks = []}) => {
