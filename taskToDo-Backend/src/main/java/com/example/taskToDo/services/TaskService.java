@@ -89,7 +89,6 @@ public class TaskService {
       taskModify.setTitle(task.getTitle());
       taskModify.setDescription(task.getDescription());
       taskModify.setComplete(task.getComplete());
-      taskModify.setDateCreation(task.getDateCreation());
       taskModify.setDateFinished(task.getDateFinished());
       taskRepository.save(taskModify);
       return taskModify;

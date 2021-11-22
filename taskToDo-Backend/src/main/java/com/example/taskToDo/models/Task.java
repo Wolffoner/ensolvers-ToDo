@@ -1,53 +1,51 @@
 package com.example.taskToDo.models;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table(name = "task")
 public class Task {
 
-  //Attributes
+  // Attributes
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(unique = true, nullable = false)
   private Long id;
 
-  @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+  @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
   @JoinColumn(name = "folder_id")
   private Folder folder;
 
-  @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+  @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH })
   @JoinColumn(name = "user_id")
   private User user;
 
-  
   @Column(nullable = false)
   private String title;
   private String description;
   @Column(nullable = false)
   private Boolean complete;
   @Column(nullable = false)
-  private Date dateCreation;
-  private Date dateFinished;
+  private LocalDate dateCreation;
+  private LocalDate dateFinished;
 
-  //Constructor
-  public Task(){
+  // Constructor
+  public Task() {
   }
 
-  public Task(String title, String description, Date dateCreation) {
+  public Task(String title, String description, LocalDate dateCreation) {
     this.title = title;
     this.description = description;
     this.complete = false;
     this.dateCreation = dateCreation;
   }
 
-  //Methods
-  
+  // Methods
+
   @JsonIgnore
   public User getUser() {
     return this.user;
@@ -102,19 +100,19 @@ public class Task {
     this.complete = complete;
   }
 
-  public Date getDateCreation() {
+  public LocalDate getDateCreation() {
     return this.dateCreation;
   }
 
-  public void setDateCreation(Date dateCreation) {
+  public void setDateCreation(LocalDate dateCreation) {
     this.dateCreation = dateCreation;
   }
 
-  public Date getDateFinished() {
+  public LocalDate getDateFinished() {
     return this.dateFinished;
   }
 
-  public void setDateFinished(Date dateFinished) {
+  public void setDateFinished(LocalDate dateFinished) {
     this.dateFinished = dateFinished;
   }
 
