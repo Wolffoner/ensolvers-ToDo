@@ -1,15 +1,16 @@
-import {useState, useEffect} from 'react'; 
+import {useState} from 'react'; 
 import axios from 'axios';
 
-export const useAxios = (reqParams) =>{
+
+export const useAxios = () =>{
 
   const [response, setResponse] = useState(undefined);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   
-  const fetchData = async(params) =>{
+  const fetchData = async(reqParams) =>{
     try {
-      const result = await axios.request(params);
+      const result = await axios.request(reqParams);
       setResponse(result?.data);
     } catch(err) {
       setError(err);
@@ -18,10 +19,6 @@ export const useAxios = (reqParams) =>{
     }
   }
 
-  useEffect(() => {
-    fetchData(reqParams);
-     //eslint-disable-next-line
-  }, []);
 
   return{response, error, loading, fetchData};
 }

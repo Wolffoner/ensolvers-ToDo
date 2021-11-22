@@ -3,8 +3,11 @@ import { Button } from '../button/Button';
 import StyledForm from './StyledForm';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useStore } from '../../../store/storeProvider';
 
-const FormFolder = ({creation = {}}) => {
+const FormFolder = () => {
+
+  const {user} = useStore();
 
   const [folder, setFolder] = useState({
     title: '',
@@ -21,7 +24,7 @@ const FormFolder = ({creation = {}}) => {
 
   const saveFolder = async() =>{
     try {
-      await axios.post(`http://localhost:8080/folders/user_id=1`, folder);
+      await axios.post(`http://localhost:8080/folders/user_id=${user?.id}`, folder);
     } catch(err) {
     }
   }
@@ -32,12 +35,12 @@ const FormFolder = ({creation = {}}) => {
         <label>
           Title:
         </label>
-          <input type="text" name="title" placeholder="Enter your task title" onChange={handleChange}/>
+          <input type="text" name="title" value={folder.title} placeholder="Enter your task title" onChange={handleChange}/>
         <label>
           Description:
         </label>
-          <textarea name="description" form="" onChange={handleChange} placeholder="Enter your description here"></textarea>
-          <Link to='/' state={creation?.userId}><Button height="60px" width="150px" title="Create Folder" onClick={saveFolder}/></Link>
+          <textarea name="description" value={folder.description} onChange={handleChange} placeholder="Enter your description here"></textarea>
+          <Link to='/folders'><Button height="60px" width="150px" title="Create Folder" onClick={saveFolder}/></Link>
       </StyledForm>
     </>
   );

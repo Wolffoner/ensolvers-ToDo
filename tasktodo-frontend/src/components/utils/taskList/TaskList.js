@@ -4,13 +4,13 @@ import TaskTable from '../table/TaskTable';
 
 const TaskList = ({folderId = null}) => {
 
-  const {response, error, loading} = useAxios({
-    method: 'GET',
-    url: `http://localhost:8080/tasks/folder_id=${folderId}`,
-  })
+  const {response, error, loading, fetchData} = useAxios();
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
+    fetchData({method: 'GET',
+    url: `http://localhost:8080/tasks/folder_id=${folderId}`,
+    })
     setTasks(response ?? []);
   }, [response]);
 
