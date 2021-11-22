@@ -20,7 +20,6 @@ const TaskTable = ({folders = []}) => {
             <th>Title</th>
             <th>Description</th>
             <th>Tasks</th>
-            <th>Modify</th>
             <th>Delete</th>
           </tr>
         </thead>

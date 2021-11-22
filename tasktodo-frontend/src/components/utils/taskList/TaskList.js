@@ -12,7 +12,6 @@ const TaskList = ({folderId = null}) => {
 
   useEffect(() => {
     setTasks(response ?? []);
-    console.log(folderId);
   }, [response]);
 
   return (
