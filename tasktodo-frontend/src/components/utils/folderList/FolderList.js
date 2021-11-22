@@ -6,7 +6,7 @@ const FolderList = ({folderId = null}) => {
 
   const {response, error, loading} = useAxios({
     method: 'GET',
-    url: `http://localhost:8080/folders`,
+    url: `http://localhost:8080/folders/user_id=1`,
   })
   const [folders, setFolders] = useState([]);
 

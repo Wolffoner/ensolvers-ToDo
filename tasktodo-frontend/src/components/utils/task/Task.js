@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {Button} from '../button/Button';
+import { Link } from 'react-router-dom';
 
 const Task = ( {element = {
   id: '',
@@ -9,7 +10,9 @@ const Task = ( {element = {
   complete: '',
   dateCreation: '',
   dateFinished: ''
- }} ) => {
+ },
+ folderId
+} ) => {
 
   const [task, setTask] = useState({
     id: element?.id,
@@ -44,7 +47,6 @@ const Task = ( {element = {
         <td>{task?.description}</td>
         <td>{task?.dateCreation}</td>
         <td>{task?.dateFinished}</td>
-        <td><Button title="♻️" color="#dfe44d"></Button></td>
         <td><Button onClick={saveTask} title="💾" color="#17845c"></Button></td>
         <td><Button title="🗑️" color="#ba1126"></Button></td>
       </tr> 

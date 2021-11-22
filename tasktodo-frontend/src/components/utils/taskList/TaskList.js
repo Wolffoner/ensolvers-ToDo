@@ -11,7 +11,8 @@ const TaskList = ({folderId = null}) => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-      setTasks(response ?? []);
+    setTasks(response ?? []);
+    console.log(folderId);
   }, [response]);
 
   return (
@@ -20,7 +21,7 @@ const TaskList = ({folderId = null}) => {
         ? 
           <div>Loading</div>
         : (
-          <TaskTable tasks={tasks}></TaskTable>
+          <TaskTable tasks={tasks} folderId={folderId}></TaskTable>
         )
       }
     </>

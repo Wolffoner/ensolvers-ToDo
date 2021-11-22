@@ -3,13 +3,11 @@ import { StyledBackground } from '../utils/bg/StyledBackground';
 import {StyledBox, StyledBodyBox, StyledHeadBox} from '../utils/box/StyledBox';
 import TaskList from '../utils/taskList/TaskList';
 import { Button } from '../utils/button/Button';
-import {useNavigate, useLocation} from 'react-router-dom';
-
+import {useLocation, Link} from 'react-router-dom';
 
 const ViewToDoList = () => {
 
   const location = useLocation();
-  const navigate = useNavigate();
 
   return (
     <>
@@ -22,8 +20,8 @@ const ViewToDoList = () => {
             <TaskList folderId={location?.state}/> 
           </StyledBodyBox>
           <StyledHeadBox>
-            <Button height="50px" width="200px" title="Create Task" onClick={() => navigate('/formTask')}/> 
-            <Button height="50px" width="200px"title="Go Back" onClick={() => navigate('/')}/> 
+            <Link to='/formTask' state={{folderId: location?.state, userId: 1}}><Button height="50px" width="200px" title="Create Task"/></Link> 
+            <Link to='/'><Button height="50px" width="200px"title="Go Back"/></Link> 
           </StyledHeadBox>
         </StyledBox>  
       </StyledBackground> 
