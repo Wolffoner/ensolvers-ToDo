@@ -17,7 +17,7 @@ const Folder = ( {element = {
       <tr>
         <td>{folder?.title}</td>
         <td>{folder?.description}</td>
-        <td><Button onClick="" title="Enter" color="#17845c"></Button></td>
+        <td><Button onClick="" title="🧾" color="#17845c"></Button></td>
         <td><Button onClick="" title="♻️" color="#dfe44d"></Button></td>
         <td><Button onClick="" title="🗑️" color="#ba1126"></Button></td>
       </tr> 

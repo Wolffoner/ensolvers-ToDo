@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 // Styled Button
 export const StyledButton = styled.button`
-  display: flex;
   font-size: 1.2em;
   font-family: 'Verdana';
   color: #FFFFFF;

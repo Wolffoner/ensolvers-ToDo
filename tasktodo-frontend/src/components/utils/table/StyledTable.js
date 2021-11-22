@@ -10,10 +10,6 @@ export const StyledTable = styled.table`
   text-align: center;
   border-collapse: collapse;
 
-   & tr{
-    align-items: center;
-    justify-content: center;
-  } 
   & tr:nth-child(even){
     background-color: #f2f2f2;
   }

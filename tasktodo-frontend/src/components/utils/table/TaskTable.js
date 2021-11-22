@@ -22,6 +22,9 @@ const TaskTable = ({tasks = []}) => {
             <th>Description</th>
             <th>Date Created</th>
             <th>Date Finished</th>
+            <th>Modify</th>
+            <th>Save</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>     
