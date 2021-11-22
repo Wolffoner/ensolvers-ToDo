@@ -4,25 +4,17 @@ import StyledForm from './StyledForm';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const FormTask = ({
-    creation = {}, 
-    element = { 
-      title: '',
-      description: '',
-      dateCreation: '',
-      dateFinished: '',
-      complete: false  
-    }}) => {
+const FormTask = ({ creation = {}}) => {
 
   const today = new Date();
   const dateCreation = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`;
 
   const [task, setTask] = useState({
-    title: element?.title,
-    description: element?.description,
-    dateCreation: element?.dateCreation === '' ? dateCreation : element?.dateCreation,
-    complete: element?.complete,
-    dateFinished: element.dateFinished
+    title: '',
+    description: '',
+    dateCreation: dateCreation,
+    complete: false,
+    dateFinished: null
   });
 
   // handleChange form

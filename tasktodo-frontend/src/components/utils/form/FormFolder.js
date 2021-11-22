@@ -4,12 +4,7 @@ import StyledForm from './StyledForm';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const FormTask = ({
-    creation = {}, 
-    element = { 
-      title: '',
-      description: '',
-    }}) => {
+const FormTask = ({creation = {}}) => {
 
   const [folder, setFolder] = useState({
     title: element?.title,
