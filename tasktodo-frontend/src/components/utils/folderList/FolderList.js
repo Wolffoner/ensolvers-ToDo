@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import { useAxios } from '../../../hooks/useAxios';
-import TaskTable from '../table/TaskTable';
+import FolderTable from '../table/FolderTable';
 
-const TaskList = (folder) => {
+const FolderList = () => {
 
   const {response, error, loading} = useAxios({
     method: 'GET',
-    url: 'http://localhost:8080/tasks',
+    url: 'http://localhost:8080/folders',
   })
-  const [tasks, setTasks] = useState([]);
+  const [folders, setFolders] = useState([]);
 
   useEffect(() => {
-      setTasks(response ?? []);
+      setFolders(response ?? []);
   }, [response]);
 
   return (
@@ -20,11 +20,11 @@ const TaskList = (folder) => {
         ? 
           <div>Loading</div>
         : (
-          <TaskTable tasks={tasks}></TaskTable>
+          <FolderTable folders={folders}></FolderTable>
         )
       }
     </>
   );
 };
 
-export default TaskList;
+export default FolderList;

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react';
 import StyledTable from './StyledTable';
 import Task from '../task/Task';
 
 // Table
-const Table = ({tasks = []}) => {
+const TaskTable = ({tasks = []}) => {
 
   const elements = tasks.map((task) =>{
    return(
@@ -32,4 +32,4 @@ const Table = ({tasks = []}) => {
   );
 };
 
-export default Table;
+export default TaskTable;

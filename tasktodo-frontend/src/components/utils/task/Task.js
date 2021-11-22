@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Button} from '../button/Button';
 
@@ -20,17 +20,18 @@ const Task = ( {element = {
     dateFinished: element?.dateFinished 
   });
 
+
   const changeComplete = () =>{
-    let change = !task.complete;
+    const change = !task.complete;
     const today = new Date();
-    let dateChange = (task.complete) ? null : `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`;
-    setTask({...task, complete: change, dateFinished: dateChange})
+    const dateFinishedChange = (task.complete) ? null : `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`;
+    setTask({...task, complete: change, dateFinished: dateFinishedChange})
   }
 
   const saveTask = async() =>{
     try {
       await axios.put(`http://localhost:8080/tasks/id=${task.id}`,task);
-      console.log(`perfecto`);
+      console.log(task);
     } catch(err) {
       console.log(`error`);
     }
