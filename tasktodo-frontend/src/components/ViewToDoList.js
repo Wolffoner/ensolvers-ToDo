@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledBackground } from './bg/StyledBackground';
-import {StyledBox, StyledInsideUpBox, StyledInsideDownBox} from './box/StyledBox';
+import {StyledBox, StyledBodyBox, StyledHeadBox} from './box/StyledBox';
 import TaskList from './TaskList';
 import { Button } from './button/Button';
 import {useNavigate} from 'react-router-dom';
@@ -13,13 +13,16 @@ const ViewToDoList = () => {
     <>
       <StyledBackground>
         <StyledBox>
-          <StyledInsideUpBox>
+          <StyledHeadBox>
+            <h1>Task To Do</h1>
+          </StyledHeadBox>
+          <StyledBodyBox>
             <TaskList/> 
-          </StyledInsideUpBox>
-          <StyledInsideDownBox>
+          </StyledBodyBox>
+          <StyledHeadBox>
             <Button height="50px" width="200px" title="Create Task" onClick={() => navigate('/formTask')}/> 
             <Button height="50px" width="200px"title="Go Back"/> 
-          </StyledInsideDownBox>
+          </StyledHeadBox>
         </StyledBox>  
       </StyledBackground> 
     </>

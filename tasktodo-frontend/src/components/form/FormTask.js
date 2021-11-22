@@ -19,11 +19,11 @@ const FormTask = () => {
         <label>
           Title:
         </label>
-          <input type="text" name="title" />
+          <input type="text" name="title" placeholder="Enter your task title"/>
         <label>
           Description:
         </label>
-          <textarea name="description" form="usrform">Enter text here...</textarea>
+          <textarea name="description" form="usrform">Enter description here...</textarea>
           <Button height="60px" width="150px" title="Create Task" onClick={() => navigate('/')}/> 
       </StyledForm>
     </>

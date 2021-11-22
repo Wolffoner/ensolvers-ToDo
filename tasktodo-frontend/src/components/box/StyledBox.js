@@ -12,7 +12,16 @@ export const StyledBox = styled.div`
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 `;
 
-export const StyledInsideUpBox = styled.div`
+export const StyledHeadBox = styled.div`
+  display: flex;
+  width: 100%;
+  height: 15%;
+  align-items: center;
+  justify-content: center;
+  
+`;
+
+export const StyledBodyBox = styled.div`
   overflow: auto;
   display: block;
   width: 100%;
@@ -22,12 +31,3 @@ export const StyledInsideUpBox = styled.div`
   
 `;
 
-export const StyledInsideDownBox = styled.div`
-  overflow: auto;
-  display: flex;
-  width: 100%;
-  height: 30%;
-  align-items: center;
-  justify-content: center;
-  
-`;
