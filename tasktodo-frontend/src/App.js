@@ -1,19 +1,9 @@
-import './App.css';
-import { Routes, Route } from 'react-router';
-import ViewFormTask from './components/views/ViewFormTask';
-import ViewToDoList from './components/views/ViewToDoList';
-import ViewFolders from './components/views/ViewFolders';
-import ViewFormFolder from './components/views/ViewFormFolder';
+import RoutesUser from "./routes/RoutesUser";
 
 const App = () => {
   return (
     <>
-      <Routes>
-        <Route unique path="/" element={<ViewFolders/>} />
-        <Route path="/list" element={<ViewToDoList/>} />
-        <Route path="/formTask" element={<ViewFormTask/>} />
-        <Route path="/formFolder" element={<ViewFormFolder/>} />
-      </Routes>
+      <RoutesUser></RoutesUser>
     </>
   );
 }
