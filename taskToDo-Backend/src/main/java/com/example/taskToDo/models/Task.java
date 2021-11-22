@@ -42,6 +42,7 @@ public class Task {
     this.description = description;
     this.complete = false;
     this.dateCreation = dateCreation;
+    this.dateFinished = null;
   }
 
   // Methods
