@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Button} from '../button/Button';
+import { Link } from 'react-router-dom';
 
 const Folder = ( {element = {
   id: '',
@@ -17,9 +18,9 @@ const Folder = ( {element = {
       <tr>
         <td>{folder?.title}</td>
         <td>{folder?.description}</td>
-        <td><Button onClick="" title="🧾" color="#17845c"></Button></td>
-        <td><Button onClick="" title="♻️" color="#dfe44d"></Button></td>
-        <td><Button onClick="" title="🗑️" color="#ba1126"></Button></td>
+        <td><Link to='/list' state={folder.id}><Button title="🧾" color="#17845c"></Button></Link></td>
+        <td><Button title="♻️" color="#dfe44d"></Button></td>
+        <td><Button title="🗑️" color="#ba1126"></Button></td>
       </tr> 
     )
   }

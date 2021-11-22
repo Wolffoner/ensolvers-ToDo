@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import {Button} from '../button/Button';
 
@@ -44,9 +44,9 @@ const Task = ( {element = {
         <td>{task?.description}</td>
         <td>{task?.dateCreation}</td>
         <td>{task?.dateFinished}</td>
-        <td><Button onClick="" title="♻️" color="#dfe44d"></Button></td>
+        <td><Button title="♻️" color="#dfe44d"></Button></td>
         <td><Button onClick={saveTask} title="💾" color="#17845c"></Button></td>
-        <td><Button onClick="" title="🗑️" color="#ba1126"></Button></td>
+        <td><Button title="🗑️" color="#ba1126"></Button></td>
       </tr> 
     )
   }

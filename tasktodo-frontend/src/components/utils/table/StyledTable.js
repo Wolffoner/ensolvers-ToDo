@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // Styled Table
 export const StyledTable = styled.table`
   width: 100%;
-  height: 20%;
+  height: 15%;
   overflow: auto;
   align-items: center;
   justify-content: center;

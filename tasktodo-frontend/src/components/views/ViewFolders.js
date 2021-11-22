@@ -3,11 +3,11 @@ import { StyledBackground } from '../utils/bg/StyledBackground';
 import {StyledBox, StyledBodyBox, StyledHeadBox} from '../utils/box/StyledBox';
 import FolderList from '../utils/folderList/FolderList';
 import { Button } from '../utils/button/Button';
-import {useNavigate} from 'react-router-dom';
+//import {useNavigate} from 'react-router-dom';
 
 const ViewFolders = () => {
 
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   return (
     <>
@@ -20,7 +20,7 @@ const ViewFolders = () => {
             <FolderList/> 
           </StyledBodyBox>
           <StyledHeadBox>
-            <Button height="50px" width="200px" title="Create Folder" onClick={() => navigate('/list')}/> 
+            <Button height="50px" width="200px" title="Create Folder"></Button>
           </StyledHeadBox>
         </StyledBox>  
       </StyledBackground> 

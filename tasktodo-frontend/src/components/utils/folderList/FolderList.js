@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react';
 import { useAxios } from '../../../hooks/useAxios';
 import FolderTable from '../table/FolderTable';
 
-const FolderList = () => {
+const FolderList = ({folderId = null}) => {
 
   const {response, error, loading} = useAxios({
     method: 'GET',
-    url: 'http://localhost:8080/folders',
+    url: `http://localhost:8080/folders`,
   })
   const [folders, setFolders] = useState([]);
 
