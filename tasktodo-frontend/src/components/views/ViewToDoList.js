@@ -20,8 +20,8 @@ const ViewToDoList = () => {
             <TaskList folderId={location?.state}/> 
           </StyledBodyBox>
           <StyledHeadBox>
-            <Link to='/formTask' state={{folderId: location?.state, userId: 1}}><Button height="50px" width="200px" title="Create Task"/></Link> 
-            <Link to='/'><Button height="50px" width="200px"title="Go Back"/></Link> 
+            <Link to='/formTask'><Button height="50px" width="200px" title="Create Task"/></Link> 
+            <Link to='/folders'><Button height="50px" width="200px"title="Go Back"/></Link> 
           </StyledHeadBox>
         </StyledBox>  
       </StyledBackground> 

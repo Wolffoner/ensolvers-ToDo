@@ -3,9 +3,11 @@ import { Button } from '../button/Button';
 import StyledForm from './StyledForm';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useStore } from '../../../store/storeProvider';
 
-const FormTask = ({ creation = {}}) => {
+const FormTask = () => {
 
+  const {user, folder} = useStore();
   const today = new Date();
   const dateCreation = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`;
 
@@ -28,7 +30,7 @@ const FormTask = ({ creation = {}}) => {
 
   const saveTask = async() =>{
     try {
-      await axios.post(`http://localhost:8080/tasks/folder_id=${creation?.folderId}/user_id=${creation?.userId}`, task);
+      await axios.post(`http://localhost:8080/tasks/folder_id=${folder}/user_id=${user?.id}`, task);
     } catch(err) {
     }
   }
@@ -44,7 +46,7 @@ const FormTask = ({ creation = {}}) => {
           Description:
         </label>
           <textarea name="description" form="" onChange={handleChange} placeholder="Enter your description here"></textarea>
-          <Link to='/list' state={creation?.folderId}><Button height="60px" width="150px" title="Create Task" onClick={saveTask}/></Link>
+          <Link to='/list'><Button height="60px" width="150px" title="Create Task" onClick={saveTask}/></Link>
       </StyledForm>
     </>
   );

@@ -1,15 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import { useAxios } from '../../../hooks/useAxios';
+import { useStore } from '../../../store/storeProvider';
 import TaskTable from '../table/TaskTable';
 
-const TaskList = ({folderId = null}) => {
+const TaskList = () => {
+
+  const {folder} = useStore();
 
   const {response, error, loading, fetchData} = useAxios();
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     fetchData({method: 'GET',
-    url: `http://localhost:8080/tasks/folder_id=${folderId}`,
+    url: `http://localhost:8080/tasks/folder_id=${folder}`,
     })
     setTasks(response ?? []);
   }, [response]);
@@ -20,7 +23,7 @@ const TaskList = ({folderId = null}) => {
         ? 
           <div>Loading</div>
         : (
-          <TaskTable tasks={tasks} folderId={folderId}></TaskTable>
+          <TaskTable tasks={tasks}></TaskTable>
         )
       }
     </>
