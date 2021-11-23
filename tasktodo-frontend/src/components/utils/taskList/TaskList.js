@@ -15,6 +15,7 @@ const TaskList = () => {
     url: `http://localhost:8080/tasks/folder_id=${folder}`,
     })
     setTasks(response ?? []);
+    // eslint-disable-next-line
   }, [response]);
 
   return (

@@ -32,7 +32,6 @@ const Task = ( {element = {
   const saveTask = async() =>{
     try {
       await axios.put(`http://localhost:8080/tasks/id=${task.id}`,task);
-      window.location.reload();
     } catch(err) {
     }
   }
@@ -40,7 +39,6 @@ const Task = ( {element = {
   const deleteTask = async() =>{
     try {
       await axios.delete(`http://localhost:8080/tasks/id=${task.id}`,task);
-      window.location.reload();
     } catch(err) {
     }
   }

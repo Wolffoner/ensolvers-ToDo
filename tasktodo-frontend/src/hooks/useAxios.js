@@ -19,6 +19,5 @@ export const useAxios = () =>{
     }
   }
 
-
   return{response, error, loading, fetchData};
 }

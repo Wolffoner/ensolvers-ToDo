@@ -29,7 +29,6 @@ const FormLogin = () => {
       dispatch({
         type: types?.authLogin,
         payload: res?.data});
-      console.log(types?.authLogin);
     } catch(err) {
     }
   }

@@ -3,7 +3,7 @@ import { useAxios } from '../../../hooks/useAxios';
 import FolderTable from '../table/FolderTable';
 import { useStore } from '../../../store/storeProvider';
 
-const FolderList = ({folderId = null}) => {
+const FolderList = () => {
 
   const {user} = useStore();
 
@@ -15,8 +15,9 @@ const FolderList = ({folderId = null}) => {
     fetchData({method: 'GET',
     url: `http://localhost:8080/folders/user_id=${user?.id}`,
     })
-      setFolders(response ?? []);
-  }, [response, user?.id]);
+    setFolders(response ?? []);
+    // eslint-disable-next-line
+  }, [response]);
 
   return (
     <>  
