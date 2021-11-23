@@ -11,6 +11,7 @@ const FormTask = () => {
   const today = new Date();
   const dateCreation = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`;
 
+  const [error, setError] = useState(null);
   const [task, setTask] = useState({
     title: '',
     description: '',
@@ -32,6 +33,7 @@ const FormTask = () => {
     try {
       await axios.post(`http://localhost:8080/tasks/folder_id=${folder}/user_id=${user?.id}`, task);
     } catch(err) {
+      setError(err);
     }
   }
   

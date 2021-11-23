@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useAxios } from '../../../hooks/useAxios';
 import { useStore } from '../../../store/storeProvider';
 import TaskTable from '../table/TaskTable';
+import Error from '../error/Error';
 
 const TaskList = () => {
 
@@ -18,14 +19,15 @@ const TaskList = () => {
     // eslint-disable-next-line
   }, [response]);
 
+  const result = error === '' ? <TaskTable tasks={tasks}></TaskTable> : <Error error={error}></Error>
+
   return (
     <>  
       { loading === true 
         ? 
           <div>Loading</div>
-        : (
-          <TaskTable tasks={tasks}></TaskTable>
-        )
+        : 
+          result
       }
     </>
   );

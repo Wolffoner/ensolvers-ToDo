@@ -9,6 +9,7 @@ const FormFolder = () => {
 
   const {user} = useStore();
 
+  const [error, setError] = useState(null);
   const [folder, setFolder] = useState({
     title: '',
     description: '',
@@ -26,6 +27,7 @@ const FormFolder = () => {
     try {
       await axios.post(`http://localhost:8080/folders/user_id=${user?.id}`, folder);
     } catch(err) {
+      setError(err);
     }
   }
   

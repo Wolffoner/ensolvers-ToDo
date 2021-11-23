@@ -12,6 +12,8 @@ const Task = ( {element = {
  }
 } ) => {
 
+
+  const [error, setError] = useState(null);
   const [task, setTask] = useState({
     id: element?.id,
     title: element?.title,
@@ -33,6 +35,7 @@ const Task = ( {element = {
     try {
       await axios.put(`http://localhost:8080/tasks/id=${task.id}`,task);
     } catch(err) {
+      setError(err);
     }
   }
 
@@ -40,6 +43,7 @@ const Task = ( {element = {
     try {
       await axios.delete(`http://localhost:8080/tasks/id=${task.id}`,task);
     } catch(err) {
+      setError(err);
     }
   }
 
